@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will you be my Valentine?</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #f7cfdc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .card {
+      background: #fff;
+      width: 420px;
+      padding: 50px 30px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+    .emoji {
+      font-size: 70px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 40px;
+      color: #222;
+    }
+
+    /* 👇 IMPORTANT FIX */
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    .yes {
+        padding: 15px 45px;
+        background: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 35px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        }
+
+
+    .no {
+      position: absolute;
+      padding: 12px 25px;
+      background: #eee;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      left: 260px;
+      top: 20px;
+    }
+
+    .note {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="emoji">🐣 💗</div>
+
+    <h1>Dilkhush Ji, will you be my Valentine?</h1>
+
+    <div class="buttons">
+      <button class="yes" onclick="yesClicked()">Yes</button>
+      <button class="no" id="noBtn">No</button>
+    </div>
+
+    <div class="note">Stop trying to say no, you cannot escape from me.. Heehee😈</div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * 280;
+      const y = Math.random() * 70;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+    noBtn.addEventListener("touchstart", () => {
+      noBtn.dispatchEvent(new Event("mouseenter"));
+    });
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          background:#f7cfdc;
+          font-family:Segoe UI;
+          text-align:center;">
+          <h1 style="color:#e91e63;">
+            YAYYY 💖<br>
+            Thankyou for being my Valentine for this time and forever, Puchkuuuu😭✨
+          </h1>
+        </div>
+      `;
+    }
+  </script>
+  <script>
+    
+  const yesBtn = document.querySelector(".yes");
+  let hasGrown = false;
+
+  yesBtn.addEventListener("mouseenter", () => {
+    if (!hasGrown) {
+      yesBtn.style.transform = "scale(1.3)";
+      hasGrown = true;
+    }
+  });
+</script>
+
+
+</body>
+</html>
